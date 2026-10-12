@@ -19,7 +19,9 @@ portafolio/
 │   └── script.js           # Interactividad (año, menú, animación de barras)
 ├── assets/
 │   ├── img/
-│   │   └── foto-perfil.jpg # Foto profesional (600x600 px, cuadrada)
+│   │   ├── foto-perfil.jpg  # Foto profesional (600x600 px, cuadrada)
+│   │   ├── logo-gestora.svg      # Logotipo de Gestora
+│   │   └── logo-grupoverum.svg   # Logotipo de Grupo Verum (Record)
 │   └── cv/
 │       └── CV.pdf          # Currículum en PDF
 └── README.md
@@ -36,12 +38,32 @@ portafolio/
 4. **Descarga de CV** — botón destacado que abre/descarga el PDF (`assets/cv/CV.pdf`).
 5. **Contacto y Redes** — pie de página con enlaces a LinkedIn, GitHub y correo.
 
+## Proyectos incluidos
+
+| Proyecto | Tipo | Enlaces |
+|---|---|---|
+| Asistente y Control de Mantenimiento Vehicular | Proyecto universitario | [Código](https://github.com/Soy-teeven/autoAsistente_FW3P) · [Demo](https://auto-asistente-fw-3-p-five.vercel.app) |
+| Record · Sorteos y Rifas | Colaboración · código privado | [grupoverum.ec](https://grupoverum.ec/) |
+| Gestora · Facturación y Ventas | Colaboración · código privado | [gestora.athiscore.com](https://gestora.athiscore.com/) |
+
+Los dos últimos son productos de **Athis Core** en los que participé como
+ayudante; su código fuente es privado, por eso enlazo al sitio en producción
+en lugar de a un repositorio.
+
+Los logotipos se guardan localmente en `assets/img/` para que las tarjetas no
+dependan de que los servidores externos sigan disponibles.
+
 ## Tareas pendientes
 
-- [ ] **Pegar las URLs de los 3 repositorios** en `index.html`. Están marcados con
-      `<!-- ⚠️ REEMPLAZAR: ... -->` sobre cada botón "Ver código" (líneas ~104, ~130, ~156).
-      Cada `href="#"` es un enlace roto hasta que se rellene.
-- [ ] **Subir a GitHub y activar GitHub Pages** (ver la sección de despliegue).
+- [ ] **Autenticarse en GitHub CLI:** `gh auth login`
+- [ ] **Crear el repositorio y publicar:**
+      `gh repo create portafolio --public --source=. --remote=origin --push`
+- [ ] **Activar GitHub Pages:**
+      `gh api --method POST repos/TMDiego/portafolio/pages -f "source[branch]=main" -f "source[path]=/"`
+- [ ] **Reemplazar los assets de ejemplo por los reales:**
+      - `assets/img/foto-perfil.jpg` → tu foto (cuadrada, ~600x600). Ahora hay un avatar genérico.
+      - `assets/cv/CV.pdf` → tu CV real. Ahora es una plantilla con "Tu Nombre",
+        "tu-usuario" y "tu@correo.com".
 
 ## Personalización
 
