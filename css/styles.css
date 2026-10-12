@@ -1,0 +1,129 @@
+/* ====================================================================
+   styles.css — Hoja de estilos personalizada
+   Filosofía: Mobile First (los estilos base son para móvil y se
+   amplían con media queries hacia pantallas mayores).
+==================================================================== */
+
+/* ---------- Variables de color personalizadas ---------- */
+:root {
+    --color-indigo: #4B0082;
+    --color-purple: #7952B3;
+    --hero-min-height: 100vh;
+}
+
+/* ---------- Base ---------- */
+html {
+    scroll-behavior: smooth;           /* desplazamiento suave al usar el menú */
+}
+
+body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    /* Compensa la altura de la barra de navegación fija */
+    padding-top: 56px;
+}
+
+/* ---------- HERO SECTION ----------
+   Se centra con las utilidades de Flexbox de Bootstrap
+   (d-flex align-items-center justify-content-center) en el HTML.
+   Aquí solo se define el fondo y la altura mínima. */
+.hero {
+    /* 100vh menos la altura del navbar fixed-top (56px) y su padding,
+       para que el hero no se desborde fuera de la primera pantalla */
+    min-height: calc(var(--hero-min-height) - 56px);
+    background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+    color: #fff;
+    padding: 4rem 0;
+}
+
+.hero-foto {
+    border: 4px solid rgba(255, 255, 255, 0.7);
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.25);
+    object-fit: cover;
+}
+
+/* ---------- Títulos de sección ---------- */
+.section-title {
+    position: relative;
+    display: inline-block;
+    font-weight: 700;
+}
+
+.section-title::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 4px;
+    margin: 0.5rem auto 0;
+    background: #0d6efd;
+    border-radius: 2px;
+}
+
+/* ---------- Portadas de proyectos (placeholders) ---------- */
+.proyecto-portada {
+    height: 180px;
+    transition: transform 0.3s ease;
+}
+
+.card:hover .proyecto-portada {
+    transform: scale(1.02);
+}
+
+.bg-gradient-primary {
+    background: linear-gradient(135deg, #0d6efd, #6610f2);
+}
+
+.bg-gradient-secondary {
+    background: linear-gradient(135deg, #198754, #0dcaf0);
+}
+
+.bg-gradient-tertiary {
+    background: linear-gradient(135deg, #fd7e14, #dc3545);
+}
+
+/* ---------- Tarjetas de proyectos ---------- */
+.card {
+    border: none;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 .75rem 1.5rem rgba(0, 0, 0, .15) !important;
+}
+
+/* ---------- Barras de progreso (Skills) ---------- */
+.habilidad {
+    margin-bottom: 1.5rem;
+}
+
+.progress {
+    height: 1.4rem;
+    border-radius: 50rem;
+}
+
+.progress-bar {
+    transition: width 1.2s ease;
+}
+
+/* Colores personalizados para badges/barras */
+.text-indigo { color: var(--color-indigo); }
+.text-purple { color: var(--color-purple); }
+.bg-indigo   { background-color: var(--color-indigo); }
+.bg-purple   { background-color: var(--color-purple); }
+
+/* ---------- Media queries (Mobile First) ---------- */
+
+/* Tablets y superiores */
+@media (min-width: 768px) {
+    .hero-foto {
+        width: 220px;
+        height: 220px;
+    }
+}
+
+/* Escritorio */
+@media (min-width: 992px) {
+    .proyecto-portada {
+        height: 200px;
+    }
+}
