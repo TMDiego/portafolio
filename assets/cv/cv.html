@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Diego M. Jiménez — Currículum Vitae</title>
+<style>
+    /* ============================================================
+       Hoja de estilos del CV. Se convierte a PDF con Edge headless:
+       msedge --headless --print-to-pdf=CV.pdf cv.html
+       Para regenerarlo tras editar este archivo, ver README.md
+    ============================================================ */
+    @page { size: Letter; margin: 0; }
+
+    :root {
+        --azul: #1e40af;
+        --gris: #4b5563;
+        --linea: #d1d5db;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+        font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+        font-size: 10.5pt;
+        line-height: 1.45;
+        color: #111827;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .hoja {
+        width: 216mm;          /* Letter: 8.5in = 215.9mm */
+        margin: 0 auto;
+        padding: 14mm 15mm;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* ---------- Encabezado ---------- */
+    header { border-bottom: 3px solid var(--azul); padding-bottom: 10px; }
+
+    h1 {
+        font-size: 22pt;
+        color: var(--azul);
+        letter-spacing: -0.3px;
+        line-height: 1.15;
+    }
+
+    .cargo {
+        font-size: 12pt;
+        color: var(--gris);
+        font-weight: 600;
+        margin-top: 2px;
+    }
+
+    /* ---------- Datos de contacto ---------- */
+    .contacto {
+        margin-top: 9px;
+        font-size: 9.5pt;
+        color: var(--gris);
+    }
+    .contacto span { white-space: nowrap; }
+    .contacto .sep { color: var(--linea); margin: 0 7px; }
+
+    /* ---------- Secciones ---------- */
+    section { margin-top: 15px; break-inside: avoid; }
+
+    h2 {
+        font-size: 11pt;
+        color: var(--azul);
+        text-transform: uppercase;
+        letter-spacing: 1.1px;
+        border-bottom: 1px solid var(--linea);
+        padding-bottom: 3px;
+        margin-bottom: 8px;
+    }
+
+    /* ---------- Perfil ---------- */
+    .perfil { text-align: justify; }
+
+    /* ---------- Educación ---------- */
+    .fila-item { margin-bottom: 9px; }
+
+    .item-cabecera {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 12px;
+    }
+
+    .item-titulo { font-weight: 700; font-size: 11pt; }
+    .item-fecha { font-size: 9pt; color: var(--gris); white-space: nowrap; }
+
+    .item-sub { font-size: 10pt; color: var(--gris); }
+    .item-lista { margin: 4px 0 0 16px; font-size: 10pt; }
+    .item-lista li { margin-bottom: 2px; }
+
+    /* ---------- Proyectos ---------- */
+    .proyecto { margin-bottom: 10px; }
+    .proyecto:last-child { margin-bottom: 0; }
+
+    .chips { margin-top: 4px; }
+    .chip {
+        display: inline-block;
+        border: 1px solid var(--linea);
+        border-radius: 10px;
+        padding: 1px 8px;
+        font-size: 8.5pt;
+        color: var(--gris);
+        margin-right: 4px;
+    }
+
+    /* ---------- Habilidades ---------- */
+    .habilidades { display: flex; flex-direction: column; gap: 5px; }
+
+    .hab { display: grid; grid-template-columns: 120px 1fr 34px; align-items: center; gap: 9px; }
+    .hab-nombre { font-size: 10pt; font-weight: 600; }
+    /* display:block es obligatorio: en <span> (inline) width/height se ignoran */
+    .hab-barra {
+        display: block;
+        height: 8px;
+        background: #e5e7eb;
+        border-radius: 5px;
+        overflow: hidden;
+    }
+    .hab-fill { display: block; height: 100%; background: var(--azul); border-radius: 5px; }
+    .hab-valor { font-size: 9pt; color: var(--gris); text-align: right; }
+
+    /* ---------- Pie ---------- */
+    footer {
+        margin-top: auto;
+        padding-top: 10px;
+        border-top: 1px solid var(--linea);
+        font-size: 8.5pt;
+        color: var(--gris);
+        text-align: center;
+    }
+
+    /* Evita que se genere una segunda página en blanco por un residuo
+       de redondeo al medir el alto en milímetros. */
+    @media print {
+        html, body { height: auto; }
+        .hoja { page-break-after: avoid; }
+    }
+</style>
+</head>
+<body>
+<div class="hoja">
+
+    <header>
+        <h1>Diego M. Jiménez</h1>
+        <div class="cargo">Desarrollador de Software Junior</div>
+        <div class="contacto">
+            <span>dmjch03@gmail.com</span><span class="sep">|</span>
+            <span>github.com/TMDiego</span><span class="sep">|</span>
+            <span>linkedin.com/in/diego-jimenez-906514364</span><span class="sep">|</span>
+            <span>Sangolquí, Quito, Ecuador</span>
+        </div>
+    </header>
+
+    <!-- ============ PERFIL ============ -->
+    <section>
+        <h2>Perfil</h2>
+        <p class="perfil">
+            Estudiante de Ingeniería en Tecnologías de la Información en la Universidad de las
+            Fuerzas Armadas ESPE (sede Sangolquí). Me especializo en el desarrollo de
+            aplicaciones web responsivas aplicando la filosofía <em>Mobile First</em>, con HTML5,
+            CSS3, JavaScript, TypeScript, PHP y Bootstrap 5, apoyadas en bases de datos MySQL.
+            Cuento con experiencia práctica en el desarrollo de sistemas de gestión empresarial
+            y en la construcción de interfaces accesibles y adaptables a distintos dispositivos.
+            Busco una oportunidad para iniciar mi carrera profesional en el desarrollo de software.
+        </p>
+    </section>
+
+    <!-- ============ EDUCACIÓN ============ -->
+    <section>
+        <h2>Educación</h2>
+        <div class="fila-item">
+            <div class="item-cabecera">
+                <span class="item-titulo">Universidad de las Fuerzas Armadas ESPE</span>
+                <span class="item-fecha">CIIE · Sede Sangolquí</span>
+            </div>
+            <div class="item-sub">Ingeniería en Tecnologías de la Información — estudiante en curso</div>
+        </div>
+    </section>
+
+    <!-- ============ PROYECTOS ============ -->
+    <section>
+        <h2>Proyectos</h2>
+
+        <div class="proyecto">
+            <div class="item-cabecera">
+                <span class="item-titulo">Asistente y Control de Mantenimiento Vehicular</span>
+                <span class="item-fecha">Proyecto universitario</span>
+            </div>
+            <div class="item-sub">
+                Registra los mantenimientos clave del vehículo (aceite, filtros, frenos) y, a partir
+                de una encuesta inicial, calcula de forma predictiva a qué kilometraje corresponde
+                el próximo cambio.
+            </div>
+            <div class="chips">
+                <span class="chip">TypeScript</span><span class="chip">CSS</span><span class="chip">HTML</span>
+            </div>
+        </div>
+
+        <div class="proyecto">
+            <div class="item-cabecera">
+                <span class="item-titulo">Record · Sorteos y Rifas</span>
+                <span class="item-fecha">Colaboración</span>
+            </div>
+            <div class="item-sub">
+                Producto para campañas de rifas y sorteos: gestión de premios e inventario,
+                emisión de boletos, publicación de resultados y consulta pública del estado de
+                cada sorteo. Código fuente privado.
+            </div>
+            <div class="chips">
+                <span class="chip">JavaScript</span><span class="chip">MySQL</span><span class="chip">HTML</span>
+            </div>
+        </div>
+
+        <div class="proyecto">
+            <div class="item-cabecera">
+                <span class="item-titulo">Gestora · Facturación y Ventas</span>
+                <span class="item-fecha">Colaboración</span>
+            </div>
+            <div class="item-sub">
+                Sistema web de gestión empresarial para múltiples empresas: clientes, productos,
+                compras, inventario y facturación electrónica, con panel de administración y
+                permisos por rol. Código fuente privado.
+            </div>
+            <div class="chips">
+                <span class="chip">PHP</span><span class="chip">Laravel</span><span class="chip">Bootstrap</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ HABILIDADES ============ -->
+    <section>
+        <h2>Habilidades Técnicas</h2>
+        <div class="habilidades">
+            <div class="hab"><span class="hab-nombre">HTML</span><span class="hab-barra"><span class="hab-fill" style="width:85%"></span></span><span class="hab-valor">85%</span></div>
+            <div class="hab"><span class="hab-nombre">CSS</span><span class="hab-barra"><span class="hab-fill" style="width:80%"></span></span><span class="hab-valor">80%</span></div>
+            <div class="hab"><span class="hab-nombre">TypeScript</span><span class="hab-barra"><span class="hab-fill" style="width:70%"></span></span><span class="hab-valor">70%</span></div>
+            <div class="hab"><span class="hab-nombre">JavaScript</span><span class="hab-barra"><span class="hab-fill" style="width:65%"></span></span><span class="hab-valor">65%</span></div>
+            <div class="hab"><span class="hab-nombre">PHP</span><span class="hab-barra"><span class="hab-fill" style="width:60%"></span></span><span class="hab-valor">60%</span></div>
+            <div class="hab"><span class="hab-nombre">MySQL</span><span class="hab-barra"><span class="hab-fill" style="width:55%"></span></span><span class="hab-valor">55%</span></div>
+            <div class="hab"><span class="hab-nombre">Bootstrap 5</span><span class="hab-barra"><span class="hab-fill" style="width:60%"></span></span><span class="hab-valor">60%</span></div>
+        </div>
+    </section>
+
+    <footer>
+        Diego M. Jiménez · Sangolquí, Quito, Ecuador · dmjch03@gmail.com
+    </footer>
+
+</div>
+</body>
+</html>

@@ -23,7 +23,8 @@ portafolio/
 │   │   ├── logo-gestora.svg      # Logotipo de Gestora
 │   │   └── logo-grupoverum.svg   # Logotipo de Grupo Verum (Record)
 │   └── cv/
-│       └── CV.pdf          # Currículum en PDF
+│       ├── cv.html          # Fuente del CV (edítalo y regenera el PDF)
+│       └── CV.pdf           # Currículum generado
 └── README.md
 ```
 
@@ -53,6 +54,25 @@ en lugar de a un repositorio.
 Los logotipos se guardan localmente en `assets/img/` para que las tarjetas no
 dependan de que los servidores externos sigan disponibles.
 
+## Currículum Vitae
+
+El CV se genera desde código para que sea fácil de mantener y para que el PDF tenga
+**texto real seleccionable** (no una imagen, como ocurre si se sube un PDF generado
+por un procesador de textosscan de otra forma).
+
+- **Fuente:** `assets/cv/cv.html`
+- **PDF generado:** `assets/cv/CV.pdf`
+
+Para editar el CV, modifica `cv.html` y vuelve a generar el PDF:
+
+```powershell
+.\generar-cv.ps1
+```
+
+El script usa Microsoft Edge en modo headless para convertir el HTML a PDF. Si
+quieres agregar tu año de estudio, diplomas o certificaciones, edita la sección
+`<h2>Educación</h2>` en `cv.html` antes de ejecutarlo.
+
 ## Tareas pendientes
 
 - [ ] **Autenticarse en GitHub CLI:** `gh auth login`
@@ -61,9 +81,9 @@ dependan de que los servidores externos sigan disponibles.
 - [ ] **Activar GitHub Pages:**
       `gh api --method POST repos/TMDiego/portafolio/pages -f "source[branch]=main" -f "source[path]=/"`
 - [ ] **Reemplazar los assets de ejemplo por los reales:**
-      - `assets/img/foto-perfil.jpg` → tu foto (cuadrada, ~600x600). Ahora hay un avatar genérico.
-      - `assets/cv/CV.pdf` → tu CV real. Ahora es una plantilla con "Tu Nombre",
-        "tu-usuario" y "tu@correo.com".
+      - `assets/img/foto-perfil.jpg` → tu foto. Ahora hay un avatar genérico con
+        iniciales "TN" generado con Pillow.
+- [ ] *(Opcional)* Añadir tu año de estudio en `assets/cv/cv.html` y regenerar el PDF.
 
 ## Personalización
 
