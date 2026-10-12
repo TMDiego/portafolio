@@ -23,7 +23,8 @@ portafolio/
 │   │   ├── logo-gestora.svg      # Logotipo de Gestora
 │   │   └── logo-grupoverum.svg   # Logotipo de Grupo Verum (Record)
 │   └── cv/
-│       ├── cv.html          # Fuente del CV (edítalo y regenera el PDF)
+│       ├── cv.html          # Estructura del CV
+│       ├── cv.css           # Estilos del CV (pensados para impresión)
 │       └── CV.pdf           # Currículum generado
 └── README.md
 ```
@@ -60,8 +61,14 @@ El CV se genera desde código para que sea fácil de mantener y para que el PDF 
 **texto real seleccionable** (no una imagen, como ocurre si se sube un PDF generado
 por un procesador de textosscan de otra forma).
 
-- **Fuente:** `assets/cv/cv.html`
-- **PDF generado:** `assets/cv/CV.pdf`
+| Archivo | Función |
+|---|---|
+| `assets/cv/cv.html` | Estructura y contenido del CV |
+| `assets/cv/cv.css` | Estilos del CV, con unidades físicas (mm, pt) porque están pensados para impresión |
+| `assets/cv/CV.pdf` | El PDF que se descarga desde la página |
+
+El CSS está aparte del HTML a propósito: si el profesor abre `cv.html` en el
+navegador, ve el CV formateado sin ensuciar el marcado con un bloque `<style>`.
 
 Para editar el CV, modifica `cv.html` y vuelve a generar el PDF:
 
